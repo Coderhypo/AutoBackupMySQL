@@ -1,15 +1,13 @@
-FROM ubuntu:trusty
-# Ubuntu 14.04, Trusty Tahr(可靠的塔尔羊)发行版
+FROM python:2.7.9
 
-# 道客船长荣誉出品
-MAINTAINER Captain Dao (support@daocloud.io)
+MAINTAINER hypo.chen@daocloud.io
 
 RUN mkdir /app
 WORKDIR /app
 COPY . /app
 
-RUN chmod +x /app/backupmysql.sh
+RUN chmod +x /app/start.sh
 
-CMD ["/bin/bash", "/app/backupmysql.sh"]
+CMD ["/bin/bash", "/app/start.sh"]
 
 EXPOSE 80
