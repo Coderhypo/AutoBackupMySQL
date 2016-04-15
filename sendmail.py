@@ -31,7 +31,7 @@ def send(subject, message=BACKUP_ERROR_MASSAGE):
     print subject
     print message
     
-    if _send_mail(subject.encode('utf-8'), message.encode('utf-8')):
+    if _send_mail(subject, message):
         print u'INFO: 邮件通知发至' + EMAIL_CONFIG['TO'] + u' 成功!'
     else:
         print u'ERROR: 邮件发送失败，请更新 EMAIL_CONFIG！'
