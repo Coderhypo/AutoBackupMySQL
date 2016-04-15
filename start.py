@@ -9,7 +9,7 @@ from backupMySQL import backup
 __AUTHER__ = 'hypo.chen@daocloud.io'
 
 if __name__ == '__main__':
-    SLEEPTIME = 60 * 60 # 每一个小时
+    SLEEPTIME = 60 * 60 * 24
 
     reload(sys)
     sys.setdefaultencoding('utf-8')
