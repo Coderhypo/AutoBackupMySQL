@@ -24,17 +24,17 @@ EMAIL_CONFIG = {
 }
 
 BACKUP_SUCCESS_MESSAGE = \
-        "您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
-        "]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
-        " 备份成功!\n==============================\n" + \
-        "> 备份路径: " + BACKUP_CONFIG['BACKUP_DIR'] + "\n" + \
-        "> 文件名称: %s\n> 文件大小: %s\n" + \
-        "> 昨日备份文件大小: %s\n" + \
-        "=============================\n" + "Daocloud"
+        u"您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
+        u"]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
+        u" 备份成功!\n==============================\n" + \
+        u"> 备份路径: " + BACKUP_CONFIG['BACKUP_DIR'] + "\n" + \
+        u"> 文件名称: %s\n> 文件大小: %s\n" + \
+        u"> 昨日备份文件大小: %s\n" + \
+        u"=============================\n" + u"Daocloud"
 
 BACKUP_ERROR_MASSAGE = \
-        "您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
-        "]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
-        " 备份失败，请关注!\n==============================\n" + \
-        "Daocloud"
+        u"您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
+        u"]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
+        u" 备份失败，请关注!\n==============================\n" + \
+        u"Daocloud"
 
