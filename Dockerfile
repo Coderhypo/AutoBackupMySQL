@@ -4,7 +4,9 @@ FROM ubuntu:trusty
 # 道客船长荣誉出品
 MAINTAINER Captain Dao (support@daocloud.io)
 
-ADD . /backup
+RUN mkdir /backup
+WORKDIR /backup
+COPY . /backup
 
 RUN chmod +x backupmysql.sh
 
