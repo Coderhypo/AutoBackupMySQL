@@ -11,3 +11,5 @@ COPY . /backup
 RUN chmod +x backupmysql.sh
 
 CMD ["/bin/bash", "backupmysql.sh"]
+
+EXPOSE 80
