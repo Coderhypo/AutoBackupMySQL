@@ -4,12 +4,12 @@ FROM ubuntu:trusty
 # 道客船长荣誉出品
 MAINTAINER Captain Dao (support@daocloud.io)
 
-RUN mkdir /backup
-WORKDIR /backup
-COPY . /backup
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
 
-RUN chmod +x backupmysql.sh
+RUN chmod +x /app/backupmysql.sh
 
-CMD ["/bin/bash", "backupmysql.sh"]
+CMD ["/bin/bash", "/app/backupmysql.sh"]
 
 EXPOSE 80
