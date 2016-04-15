@@ -24,7 +24,7 @@
 
 + TO: 收件人邮箱 eg. wenter@126.com
 + FROM: 发件人邮箱 eg. wenter@126.com
-+ PASSWORD: 发件人邮箱密码 eg. wenteriscoming
++ EMAIL_PASSWORD: 发件人邮箱密码 eg. wenteriscoming
 + SMTP: 发件邮箱SMTP地址 eg. smtp.126.com
 
 ### Volume信息
