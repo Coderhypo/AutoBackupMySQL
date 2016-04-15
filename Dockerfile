@@ -6,10 +6,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app
 
-ADD crontab /etc/cron.d/backup-mysql
-RUN chmod 0644 /etc/cron.d/backup-mysql
-RUN touch /var/log/cron.log
-
-CMD cron && tail -f /var/log/cron.log
+CMD ["python", "/app/start.py"]
 
 EXPOSE 80
