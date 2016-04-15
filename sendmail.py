@@ -13,10 +13,10 @@ def check():
     if len(EMAIL_CONFIG['FROM']) == 0 or \
     len(EMAIL_CONFIG['PASSWORD']) == 0 or \
     len(EMAIL_CONFIG['SMTP']) == 0:
-        return "ERROR: SMTP信息缺失！"
+        return u"ERROR: SMTP信息缺失！"
 
     if len(EMAIL_CONFIG['TO']) == 0:
-        return "ERROR: 收信人缺失！"
+        return u"ERROR: 收信人缺失！"
 
     return None
 
@@ -32,9 +32,9 @@ def send(subject, message=BACKUP_ERROR_MASSAGE):
     print message
     
     if _send_mail(subject.encode('utf-8'), message.encode('utf-8')):
-        print 'INFO: 邮件通知发至' + EMAIL_CONFIG['TO'] + ' 成功!'
+        print u'INFO: 邮件通知发至' + EMAIL_CONFIG['TO'] + u' 成功!'
     else:
-        print 'ERROR: 邮件发送失败，请更新 EMAIL_CONFIG！'
+        print u'ERROR: 邮件发送失败，请更新 EMAIL_CONFIG！'
 
 def _send_mail(subject,content): 
     me = "" + "<" + EMAIL_CONFIG['FROM'] + ">" 
