@@ -18,7 +18,15 @@ def check():
     if len(EMAIL_CONFIG['TO']) == 0:
         return "ERROR: 收信人缺失！"
 
+    return None
+
 def send(subject, message=BACKUP_ERROR_MASSAGE):
+
+    message = check()
+
+    if message:
+        print message
+        return 
 
     print subject
     print message
