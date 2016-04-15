@@ -6,8 +6,9 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app
 
-RUN chmod +x /app/start.sh
+ADD crontab /etc/cron.d/backup-mysql
+RUN chmod 0644 /etc/cron.d/backup-mysql
 
-CMD ["/bin/bash", "/app/start.sh"]
+CMD cron && tail -f /var/log/cron.log
 
 EXPOSE 80
