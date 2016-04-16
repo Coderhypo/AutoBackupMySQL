@@ -20,7 +20,7 @@ DNSPOD会定期访问该网站，检查该网站是否挂掉
 app = Flask(__name__)
 
 LASTTIME = None
-MINTIME = 60 * 60 * 2 # 最少间隔2小时
+MINTIME = 60 * 60 * 12 # 最少间隔12小时
 
 @app.route('/')
 def start_backup():

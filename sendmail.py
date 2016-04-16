@@ -38,7 +38,7 @@ def send(subject, message=BACKUP_ERROR_MASSAGE):
 
 def _send_mail(subject,content): 
     me = "" + "<" + EMAIL_CONFIG['FROM'] + ">" 
-    msg = MIMEText(content, _charset="utf-8") 
+    msg = MIMEText(content) 
     msg['Subject'] = subject 
     msg['From'] = me 
     msg['to'] = EMAIL_CONFIG['TO'] 
