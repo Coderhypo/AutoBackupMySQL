@@ -1,2 +1,0 @@
-* * 1 * * root python /app/backupMySQL.py
-2 * * * * root echo "INFO: Im alive yet.[TEST]"
