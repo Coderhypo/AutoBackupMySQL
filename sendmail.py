@@ -13,10 +13,10 @@ def check():
     if len(EMAIL_CONFIG['FROM']) == 0 or \
     len(EMAIL_CONFIG['PASSWORD']) == 0 or \
     len(EMAIL_CONFIG['SMTP']) == 0:
-        return u"ERROR: SMTP信息缺失！"
+        return u"ERROR: SMTP config error!"
 
     if len(EMAIL_CONFIG['TO']) == 0:
-        return u"ERROR: 收信人缺失！"
+        return u"ERROR: Cant get TO"
 
     return None
 
@@ -32,9 +32,9 @@ def send(subject, message=BACKUP_ERROR_MASSAGE):
     print message
     
     if _send_mail(subject, message):
-        print u'INFO: 邮件通知发至' + EMAIL_CONFIG['TO'] + u' 成功!'
+        print u'INFO: success send mail to' + EMAIL_CONFIG['TO']
     else:
-        print u'ERROR: 邮件发送失败，请更新 EMAIL_CONFIG！'
+        print u'ERROR: send mail fail please check EMAIL_CONFIG！'
 
 def _send_mail(subject,content): 
     me = "" + "<" + EMAIL_CONFIG['FROM'] + ">" 
@@ -42,8 +42,6 @@ def _send_mail(subject,content):
     msg['Subject'] = subject 
     msg['From'] = me 
     msg['to'] = EMAIL_CONFIG['TO'] 
-    msg["Accept-Language"]="zh-CN"
-    msg["Accept-Charset"]="utf-8"
 
     try: 
         s = smtplib.SMTP() 

@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 
 import os
 import time
+import logging 
+import logging.handlers
 
 __AUTHER__ = 'hypo.chen@daocloud.io'
 
@@ -24,17 +26,28 @@ EMAIL_CONFIG = {
 }
 
 BACKUP_SUCCESS_MESSAGE = \
-        u"您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
-        u"]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
-        u" 备份成功!\n==============================\n" + \
-        u"> 备份路径: " + BACKUP_CONFIG['BACKUP_DIR'] + "\n" + \
-        u"> 文件名称: %s\n> 文件大小: %s\n" + \
-        u"> 昨日备份文件大小: %s\n" + \
+        u"Hello, the database[" + BACKUP_CONFIG['DATABASE_NAME'] + \
+        u"] backuped success on " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
+        u"\n==============================\n" + \
+        u"> path: " + BACKUP_CONFIG['BACKUP_DIR'] + "\n" + \
+        u"> filename: %s\n> size: %s\n" + \
+        u"> last backup size: %s\n" + \
         u"=============================\n" + u"Daocloud"
 
 BACKUP_ERROR_MASSAGE = \
-        u"您好，数据库[" + BACKUP_CONFIG['DATABASE_NAME'] + \
-        u"]于 " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
-        u" 备份失败，请关注!\n==============================\n" + \
+        u"Hello ,database[" + BACKUP_CONFIG['DATABASE_NAME'] + \
+        u"] backup fail on " + time.strftime("%Y-%m-%d %H:%M", time.localtime()) + \
+        u" Please pay attention\n==============================\n" + \
         u"Daocloud"
+
+LOG_FILE = 'backup.log'
+
+handler = logging.handlers.RotatingFileHandler(LOG_FILE, maxBytes = 1024*1024, backupCount = 5) # 实例化handler   
+fmt = '%(asctime)s - %(filename)s:%(lineno)s - %(name)s - %(message)s'  
+
+formatter = logging.Formatter(fmt)   # 实例化formatter  
+handler.setFormatter(formatter)      # 为handler添加formatter  
+logger = logging.getLogger('backup')    # 获取名为tst的logger  
+logger.addHandler(handler)           # 为logger添加handler  
+logger.setLevel(logging.DEBUG)
 
